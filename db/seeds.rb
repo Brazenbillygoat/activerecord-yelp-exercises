@@ -40,7 +40,7 @@ end
 #Populate join table
 #each dish needs 3 tags
 
-
+puts Faker::Restaurant.name
 
 Dish.all.each do |d|
   tag_indices = Tag.all.map do |t|
