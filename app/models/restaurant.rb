@@ -1,3 +1,3 @@
 class Restaurant < ActiveRecord::Base
-  has_many :dishs
+  has_many :dishes
 end
