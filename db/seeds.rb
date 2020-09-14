@@ -8,7 +8,7 @@ DishTag.destroy_all
 
 restaurants = ["Olive Garden", "McDonalds", "Burger King", "Wendy's", "Subway", "Denny's", "Popeyes", "KFC", "Nick's Italian", "Woodfire Grill", "Macaroni Grill", "Cheesecake Factory", "Paul's", "IHOP", "Outback Steakhouse", "LongHorn Steakhouse", "Red Hot & Blue Laurels", "Buffalo Wild Wings", "Shake Shack", "Five Guys"]
 
-dishs = ["Pizza", "Nachos", "Hotdog", "Boneless Wings", "Cheese Burger", "Fries", "Waffles", "Pancakes", "Chicken Sandwhich", "Ice Water"]
+dishes = ["Pizza", "Nachos", "Hotdog", "Boneless Wings", "Cheese Burger", "Fries", "Waffles", "Pancakes", "Chicken Sandwhich", "Ice Water"]
 
 tags = ["Spicy", "Vegetarian", "Vegan", "Gluten-free", "Breakfast", "Lunch", "Dinner", "Brunch", "Side", "Fat", "Delivery", "Healthy", "Hot", "Cold", "Raw"]
 
@@ -24,7 +24,7 @@ end
 Restaurant.all.each do |r|
   dish_count = 0
   while dish_count < 10 do
-    Dish.create(name: Faker::Food.name, restaurant_id: r.id)
+    Dish.create(name: dishes[dish_count], restaurant_id: r.id)
     dish_count += 1
   end
 end
@@ -39,8 +39,6 @@ end
 
 #Populate join table
 #each dish needs 3 tags
-
-puts Faker::Restaurant.name
 
 Dish.all.each do |d|
   tag_indices = Tag.all.map do |t|
